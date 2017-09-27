@@ -1,0 +1,13 @@
+[package]
+name = "rkt"
+version = "0.1.0"
+authors = ["Lorenzo Bolla <lorenzo.bolla@yougov.com>"]
+
+[dependencies]
+rocket = "*"
+rocket_contrib = "*"
+rocket_codegen = "*"
+
+[lib]
+name = "dummy"
+path = "dummy.rs"
