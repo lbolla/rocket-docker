@@ -1,20 +1,20 @@
-#![feature(plugin)]
-#![plugin(rocket_codegen)]
+#![feature(proc_macro_hygiene, decl_macro)]
 
+#[macro_use]
 extern crate rocket;
 #[macro_use]
 extern crate rocket_contrib;
 
-use rocket_contrib::{Json, Value};
 use rocket::http::{RawStr, Status};
-use rocket::response::{Flash, Redirect};
 use rocket::response::status::Custom;
+use rocket::response::{Flash, Redirect};
+use rocket_contrib::json::JsonValue;
 
 #[get("/")]
-fn index() -> Json<Value> {
-    Json(json!({
+fn index() -> JsonValue {
+    json!({
         "status": "OK"
-    }))
+    })
 }
 
 #[get("/hello/<name>")]
